@@ -77,11 +77,12 @@ module.exports.init = function (callback, connectionString, opts) {
   }
 
   // hard code for URL DB
-  const DB_URL = process.env.DB_URL || 'mongodb://localhost:27017';
-  const DB_NAME = process.env.DB_NAME || 'Admin_DB';
-  CONNECTION_URI = `${DB_URL}/${DB_NAME}`;
+  // const DB_URL = process.env.DB_URL || 'mongodb://localhost:27017';
+  // const DB_NAME = process.env.DB_NAME || 'Admin_DB';
+  // CONNECTION_URI = `${DB_URL}/${DB_NAME}`;
 
   global.CONNECTION_URI = CONNECTION_URI
+  winston.info('CONNECTION_URI :' + CONNECTION_URI)
 
   mongoose.Promise = global.Promise
   mongoose.set('useFindAndModify', false)
