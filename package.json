@@ -20,6 +20,7 @@
     "snyk-protect": "snyk protect"
   },
   "dependencies": {
+    "@sendgrid/mail": "6.4.0",
     "adm-zip": "0.4.13",
     "animejs": "3.0.1",
     "ansi_up": "3.0.0",

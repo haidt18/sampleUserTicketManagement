@@ -514,10 +514,10 @@ debugController.sendmail = function (req, res) {
         generateTextFromHTML: true
       }
 
-      mailer.sendMail(mailOptions, function (err) {
+      mailer.sendMailBySendGrid(mailOptions, function (err) {
+        // mailer.sendMail(mailOptions, function (err) {
         if (err) throw new Error(err)
-
-        return res.status(200).send('OK')
+        return res.status(200).send(`done sending mail to ${mailOptions.to}`)
       })
     })
     .catch(function (err) {

@@ -16,14 +16,49 @@ var _ = require('lodash')
 var nodeMailer = require('nodemailer')
 
 var settings = require('../models/setting')
+const sgMail = require('@sendgrid/mail')
 
 var mailer = {}
 
-mailer.sendMail = function (data, callback) {
+mailer.sendMailBySendGrid = (data, callback) => {
+  try {
+    console.log('sendMailBySendGrid now')
+
+    const SENDGRID_API_KEY = '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'
+    sgMail.setApiKey(SENDGRID_API_KEY)
+
+    const msg = {
+      // to: 'haidtimeo@gmail.com',
+      from: 'dev567478@gmail.com',
+      // subject: 'Sending with Twilio SendGrid is Fun',
+      text: 'and easy to do anywhere, even with Node.js'
+      // html: '<strong>and easy to do anywhere, even with Node.js</strong>'
+    }
+    Object.assign(msg, data)
+    sgMail.send(msg, (err, res) => {
+      if (err) {
+        callback(err)
+      } else {
+        console.log('no error')
+        callback(null)
+      }
+    })
+  } catch (error) {
+    console.log('sendMailBySendGrid : ', error)
+    callback(error)
+  }
+}
+mailer.sendMail2 = function (data, callback) {
   createTransporter(function (err, mailSettings) {
-    if (err) return callback(err)
+    console.log('sendMail mailSettings', mailSettings)
+    if (err) {
+      console.log('send mail error', err)
+      return callback(err)
+    }
     if (!mailSettings || !mailSettings.enabled) {
       // Mail Disabled
+      console.log('mail is disable')
+
       return callback(null, 'Mail Disabled')
     }
 
@@ -32,13 +67,14 @@ mailer.sendMail = function (data, callback) {
     data.from = mailSettings.from.value
 
     if (!data.from) return callback('No From Address Set.')
-
+    console.log('sendMail now, data ', data, mailSettings)
     mailSettings.transporter.sendMail(data, callback)
   })
 }
 
 mailer.verify = function (callback) {
   createTransporter(function (err, mailSettings) {
+    console.log('verify mail ', mailSettings, err)
     if (err) return callback(err)
 
     if (!mailSettings.enabled) return callback({ code: 'Mail Disabled' })
@@ -95,8 +131,18 @@ function createTransporter (callback) {
         pass: mailSettings.password && mailSettings.password.value ? mailSettings.password.value : ''
       }
     }
+    console.log('mailSettings', mailSettings)
+    console.log('transport', transport)
 
-    mailSettings.transporter = nodeMailer.createTransport(transport)
+    // mailSettings.transporter = nodeMailer.createTransport(transport)
+    mailSettings.transporter = nodeMailer.createTransport({
+      service: 'Gmail',
+      auth: {
+        user: 'dev567478@gmail.com',
+        pass: 'testdev123456'
+      }
+    })
+    // mailSettings.from = 'dev567478@gmail.com';
     mailer.transporter = mailSettings.transporter
 
     return callback(null, mailSettings)
