@@ -48,7 +48,7 @@ mailer.sendMailBySendGrid = (data, callback) => {
     callback(error)
   }
 }
-mailer.sendMail2 = function (data, callback) {
+mailer.sendMail = function (data, callback) {
   createTransporter(function (err, mailSettings) {
     console.log('sendMail mailSettings', mailSettings)
     if (err) {
