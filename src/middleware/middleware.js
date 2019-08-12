@@ -19,6 +19,7 @@ var db = require('../database')
 var mongoose = require('mongoose')
 var winston = require('winston')
 
+const ObjectId = require('../database').ObjectId;
 var middleware = {}
 
 middleware.db = function (req, res, next) {
@@ -170,6 +171,41 @@ middleware.checkOrigin = function (req, res, next) {
 // API
 middleware.api = function (req, res, next) {
   var accessToken = req.headers.accesstoken
+  // console.log('accessToken ', accessToken);
+  // console.log('user ', req.user);
+  const isUser = req.body.isUser || req.query.isUser;
+  if (isUser) {
+    // disable authen for user from DEX
+    // return next();
+    console.log('hard code user right now....', isUser);
+    req.user = {
+      preferences:
+      {
+        tourCompleted: false,
+        autoRefreshTicketGrid: true,
+        openChatWindows: []
+      },
+      hasL2Auth: false,
+      deleted: false,
+      _id: new ObjectId('5d50f712ffea852b57fbdc72'),
+      username: 'user1',
+      email: 'haidtimeo@gmail.com',
+      fullname: 'user',
+      title: 'customer',
+      role:
+      {
+        _id: new ObjectId('5d47acb46fb8260447ea39e1'),
+        name: 'User',
+        description: 'Default role for users',
+        normalized: 'user',
+        isAdmin: false,
+        isAgent: false,
+        id: new ObjectId('5d47acb46fb8260447ea39e1')
+      },
+      __v: 0,
+      id: new ObjectId('5d50f712ffea852b57fbdc72')
+    }
+  }
 
   var userSchema = require('../models/user')
 
@@ -194,6 +230,39 @@ middleware.hasAuth = middleware.api
 
 middleware.apiv2 = function (req, res, next) {
   // ByPass auth for now if user is set through session
+  const isUser = req.body.isUser || req.query.isUser;
+  if (isUser) {
+    // disable authen for user from DEX
+    // return next();
+    console.log('hard code user right now....', isUser);
+    req.user = {
+      preferences:
+      {
+        tourCompleted: false,
+        autoRefreshTicketGrid: true,
+        openChatWindows: []
+      },
+      hasL2Auth: false,
+      deleted: false,
+      _id: new ObjectId('5d50f712ffea852b57fbdc72'),
+      username: 'user1',
+      email: 'haidtimeo@gmail.com',
+      fullname: 'user',
+      title: 'customer',
+      role:
+      {
+        _id: new ObjectId('5d47acb46fb8260447ea39e1'),
+        name: 'User',
+        description: 'Default role for users',
+        normalized: 'user',
+        isAdmin: false,
+        isAgent: false,
+        id: new ObjectId('5d47acb46fb8260447ea39e1')
+      },
+      __v: 0,
+      id: new ObjectId('5d50f712ffea852b57fbdc72')
+    }
+  }
   if (req.user) return next()
 
   var passport = require('passport')

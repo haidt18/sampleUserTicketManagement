@@ -50,7 +50,7 @@ mailer.sendMailBySendGrid = (data, callback) => {
 }
 mailer.sendMail = function (data, callback) {
   createTransporter(function (err, mailSettings) {
-    console.log('sendMail mailSettings', mailSettings)
+    // console.log('sendMail mailSettings', mailSettings)
     if (err) {
       console.log('send mail error', err)
       return callback(err)
@@ -67,7 +67,7 @@ mailer.sendMail = function (data, callback) {
     data.from = mailSettings.from.value
 
     if (!data.from) return callback('No From Address Set.')
-    console.log('sendMail now, data ', data, mailSettings)
+    console.log('sendMail now, data.to ', data.to)
     mailSettings.transporter.sendMail(data, callback)
   })
 }
@@ -131,8 +131,8 @@ function createTransporter (callback) {
         pass: mailSettings.password && mailSettings.password.value ? mailSettings.password.value : ''
       }
     }
-    console.log('mailSettings', mailSettings)
-    console.log('transport', transport)
+    // console.log('mailSettings', mailSettings)
+    // console.log('transport', transport)
 
     // mailSettings.transporter = nodeMailer.createTransport(transport)
     mailSettings.transporter = nodeMailer.createTransport({

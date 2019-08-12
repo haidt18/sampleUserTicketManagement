@@ -15,7 +15,9 @@
 var nconf = require('nconf')
 var mongoose = require('mongoose')
 var winston = require('winston')
-
+// const ObjectId = mongoose.Schema.Types.ObjectId;s
+const ObjectId = mongoose.Types.ObjectId;
+// Mongoose.Types.ObjectId
 var db = {}
 var mongoConnectionUri = {
   server: process.env.TD_MONGODB_SERVER || nconf.get('mongo:host'),
@@ -110,3 +112,6 @@ module.exports.init = function (callback, connectionString, opts) {
 
 module.exports.db = db
 module.exports.connectionuri = CONNECTION_URI
+module.exports.ObjectId = ObjectId
+
+

@@ -410,6 +410,10 @@ apiTickets.create = function (req, res) {
   response.success = true
 
   var postData = req.body
+  console.log('req.body :', postData);
+  console.log('req.user :', req.user);
+  console.log('req.headers :', req.headers);
+
   if (!_.isObject(postData) || !postData.subject || !postData.issue)
     return res.status(400).json({ success: false, error: 'Invalid Post Data' })
 
