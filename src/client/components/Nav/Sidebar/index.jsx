@@ -135,14 +135,14 @@ class Sidebar extends React.Component {
             </Submenu>
           </SidebarItem>
         )}
-        <SidebarItem
+        {/* <SidebarItem
           text='Messages'
           icon='chat'
           href='/messages'
           class='navMessages'
           active={activeItem === 'messages'}
-        />
-        {sessionUser && Helpers.canUser('accounts:view') && (
+        /> */}
+        {/* {sessionUser && Helpers.canUser('accounts:view') && (
           <SidebarItem
             text='Accounts'
             icon='&#xE7FD;'
@@ -179,8 +179,8 @@ class Sidebar extends React.Component {
               </Submenu>
             )}
           </SidebarItem>
-        )}
-        {sessionUser && Helpers.canUser('groups:view') && (
+        )} */}
+        {/* {sessionUser && Helpers.canUser('groups:view') && (
           <SidebarItem
             text='Customer Groups'
             icon='supervisor_account'
@@ -188,11 +188,11 @@ class Sidebar extends React.Component {
             class='navGroups'
             active={activeItem === 'groups'}
           />
-        )}
-        {sessionUser && Helpers.canUser('teams:view') && (
+        )} */}
+        {/* {sessionUser && Helpers.canUser('teams:view') && (
           <SidebarItem text='Teams' icon='wc' href='/teams' class='navTeams' active={activeItem === 'teams'} />
-        )}
-        {sessionUser && Helpers.canUser('departments:view') && (
+        )} */}
+        {/* {sessionUser && Helpers.canUser('departments:view') && (
           <SidebarItem
             text='Departments'
             icon='domain'
@@ -200,8 +200,8 @@ class Sidebar extends React.Component {
             class='navTeams'
             active={activeItem === 'departments'}
           />
-        )}
-        {sessionUser && Helpers.canUser('reports:view') && (
+        )} */}
+        {/* {sessionUser && Helpers.canUser('reports:view') && (
           <SidebarItem
             text='Reports'
             icon='assessment'
@@ -233,11 +233,11 @@ class Sidebar extends React.Component {
               />
             </Submenu>
           </SidebarItem>
-        )}
+        )} */}
 
         {/*{this.renderPlugins()}*/}
 
-        {sessionUser && Helpers.canUser('notices:view') && (
+        {/* {sessionUser && Helpers.canUser('notices:view') && (
           <SidebarItem
             text='Notices'
             icon='warning'
@@ -245,7 +245,7 @@ class Sidebar extends React.Component {
             class='navNotices'
             active={activeItem === 'notices'}
           />
-        )}
+        )} */}
 
         {sessionUser && Helpers.canUser('settings:edit') && (
           <SidebarItem
@@ -321,8 +321,8 @@ class Sidebar extends React.Component {
           </SidebarItem>
         )}
         <NavSeparator />
-        <SidebarItem href='/about' icon='help' text='About' active={activeItem === 'about'} />
-        <SidebarItem href={'https://www.trudesk.io'} icon={'cloud'} text={'Cloud'} target={'_blank'} />
+        {/* <SidebarItem href='/about' icon='help' text='About' active={activeItem === 'about'} /> */}
+        {/* <SidebarItem href={'https://www.trudesk.io'} icon={'cloud'} text={'Cloud'} target={'_blank'} /> */}
       </ul>
     )
   }

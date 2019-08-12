@@ -138,7 +138,7 @@ class TopbarContainer extends React.Component {
     const { viewdata, sessionUser } = this.props
     return (
       <div>
-        {sessionUser && sessionUser.role.isAdmin && (
+        {/* {sessionUser && sessionUser.role.isAdmin && (
           <div className={clsx('info-banner', this.showInfoBanner ? '' : 'hide')}>
             <div className={'close'} onClick={() => this.closeInfo()} />
             <p>
@@ -154,7 +154,7 @@ class TopbarContainer extends React.Component {
               </a>
             </p>
           </div>
-        )}
+        )} */}
         {this.props.notice && <NoticeBanner notice={this.props.notice} />}
         <div className={'uk-grid top-nav'}>
           <div className='uk-width-1-1'>

@@ -64,3 +64,4 @@ public/uploads/assets/upload/
 stats\.json
 
 *.heapsnapshot
+public/js/
