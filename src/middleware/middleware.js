@@ -178,32 +178,51 @@ middleware.api = function (req, res, next) {
     // disable authen for user from DEX
     // return next();
     console.log('hard code user right now....', isUser);
+    // req.user = {
+    //   preferences:
+    //   {
+    //     tourCompleted: false,
+    //     autoRefreshTicketGrid: true,
+    //     openChatWindows: []
+    //   },
+    //   hasL2Auth: false,
+    //   deleted: false,
+    //   _id: new ObjectId('5d50f712ffea852b57fbdc72'),
+    //   username: 'user1',
+    //   email: 'dev567478@gmail.com',
+    //   fullname: 'user',
+    //   title: 'customer',
+    //   role:
+    //   {
+    //     _id: new ObjectId('5d47acb46fb8260447ea39e1'),
+    //     name: 'User',
+    //     description: 'Default role for users',
+    //     normalized: 'user',
+    //     isAdmin: false,
+    //     isAgent: false,
+    //     id: new ObjectId('5d47acb46fb8260447ea39e1')
+    //   },
+    //   __v: 0,
+    //   id: new ObjectId('5d50f712ffea852b57fbdc72')
+    // }
+
     req.user = {
-      preferences:
-      {
+      _id: new ObjectId("5d47af9a694cca03349c26ed"),
+      preferences: {
         tourCompleted: false,
         autoRefreshTicketGrid: true,
         openChatWindows: []
       },
       hasL2Auth: false,
       deleted: false,
-      _id: new ObjectId('5d50f712ffea852b57fbdc72'),
-      username: 'user1',
-      email: 'haidtimeo@gmail.com',
-      fullname: 'user',
-      title: 'customer',
-      role:
-      {
-        _id: new ObjectId('5d47acb46fb8260447ea39e1'),
-        name: 'User',
-        description: 'Default role for users',
-        normalized: 'user',
-        isAdmin: false,
-        isAgent: false,
-        id: new ObjectId('5d47acb46fb8260447ea39e1')
-      },
-      __v: 0,
-      id: new ObjectId('5d50f712ffea852b57fbdc72')
+      username: "customer1",
+      email: "dev567478@gmail.com",
+      password: "$2b$10$H0/U3nsPPR.vR7vysgmEbeQanCPmkdlP0pFKmyjV6H5yYgYgn4XAC",
+      fullname: "customer1",
+      title: "Mr",
+      role: new ObjectId("5d47aec59c278302b4385573"),
+      __v: 0
+      // lastOnline : ISODate("2019-08-08T14:48:20.295Z")
     }
   }
 
@@ -235,33 +254,52 @@ middleware.apiv2 = function (req, res, next) {
     // disable authen for user from DEX
     // return next();
     console.log('hard code user right now....', isUser);
+    // req.user = {
+    //   preferences:
+    //   {
+    //     tourCompleted: false,
+    //     autoRefreshTicketGrid: true,
+    //     openChatWindows: []
+    //   },
+    //   hasL2Auth: false,
+    //   deleted: false,
+    //   _id: new ObjectId('5d50f712ffea852b57fbdc72'),
+    //   username: 'user1',
+    //   email: 'dev567478@gmail.com',
+    //   fullname: 'user',
+    //   title: 'customer',
+    //   role:
+    //   {
+    //     _id: new ObjectId('5d47acb46fb8260447ea39e1'),
+    //     name: 'User',
+    //     description: 'Default role for users',
+    //     normalized: 'user',
+    //     isAdmin: false,
+    //     isAgent: false,
+    //     id: new ObjectId('5d47acb46fb8260447ea39e1')
+    //   },
+    //   __v: 0,
+    //   id: new ObjectId('5d50f712ffea852b57fbdc72')
+    // }
     req.user = {
-      preferences:
-      {
+      _id: new ObjectId("5d47af9a694cca03349c26ed"),
+      preferences: {
         tourCompleted: false,
         autoRefreshTicketGrid: true,
         openChatWindows: []
       },
       hasL2Auth: false,
       deleted: false,
-      _id: new ObjectId('5d50f712ffea852b57fbdc72'),
-      username: 'user1',
-      email: 'haidtimeo@gmail.com',
-      fullname: 'user',
-      title: 'customer',
-      role:
-      {
-        _id: new ObjectId('5d47acb46fb8260447ea39e1'),
-        name: 'User',
-        description: 'Default role for users',
-        normalized: 'user',
-        isAdmin: false,
-        isAgent: false,
-        id: new ObjectId('5d47acb46fb8260447ea39e1')
-      },
-      __v: 0,
-      id: new ObjectId('5d50f712ffea852b57fbdc72')
+      username: "customer1",
+      email: "dev567478@gmail.com",
+      password: "$2b$10$H0/U3nsPPR.vR7vysgmEbeQanCPmkdlP0pFKmyjV6H5yYgYgn4XAC",
+      fullname: "customer1",
+      title: "Mr",
+      role: new ObjectId("5d47aec59c278302b4385573"),
+      __v: 0
+      // lastOnline : ISODate("2019-08-08T14:48:20.295Z")
     }
+
   }
   if (req.user) return next()
 
