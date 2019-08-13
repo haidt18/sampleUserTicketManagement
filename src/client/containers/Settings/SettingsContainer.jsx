@@ -95,13 +95,13 @@ class SettingsContainer extends React.Component {
                   this.onMenuItemClick(e, 'appearance')
                 }}
               />
-              <MenuItem
+              {/* <MenuItem
                 title='Permissions'
                 active={this.state.activeCategory === 'settings-permissions'}
                 onClick={e => {
                   this.onMenuItemClick(e, 'permissions')
                 }}
-              />
+              /> */}
               <MenuItem
                 title='Tickets'
                 active={this.state.activeCategory === 'settings-tickets'}
@@ -116,20 +116,20 @@ class SettingsContainer extends React.Component {
                   this.onMenuItemClick(e, 'mailer')
                 }}
               />
-              <MenuItem
+              {/* <MenuItem
                 title={'Elasticsearch'}
                 active={this.state.activeCategory === 'settings-elasticsearch'}
                 onClick={e => {
                   this.onMenuItemClick(e, 'elasticsearch')
                 }}
-              />
-              <MenuItem
+              /> */}
+              {/* <MenuItem
                 title='Push Service'
                 active={this.state.activeCategory === 'settings-tps'}
                 onClick={e => {
                   this.onMenuItemClick(e, 'tps')
                 }}
-              />
+              /> */}
               <MenuItem
                 title='Backup/Restore'
                 active={this.state.activeCategory === 'settings-backup'}
@@ -137,13 +137,13 @@ class SettingsContainer extends React.Component {
                   this.onMenuItemClick(e, 'backup')
                 }}
               />
-              <MenuItem
+              {/* <MenuItem
                 title='Legal'
                 active={this.state.activeCategory === 'settings-legal'}
                 onClick={e => {
                   this.onMenuItemClick(e, 'legal')
                 }}
-              />
+              /> */}
             </Menu>
           </div>
         </div>

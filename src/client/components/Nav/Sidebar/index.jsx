@@ -25,11 +25,11 @@ import { updateNavChange } from '../../../actions/nav'
 import Helpers from 'lib/helpers'
 
 class Sidebar extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
   }
 
-  componentDidMount () {
+  componentDidMount() {
     Helpers.UI.getPlugins((err, result) => {
       if (!err && result.plugins) {
         this.setState({ plugins: result.plugins })
@@ -37,12 +37,12 @@ class Sidebar extends React.Component {
     })
   }
 
-  componentDidUpdate () {
+  componentDidUpdate() {
     Helpers.UI.initSidebar()
     Helpers.UI.bindExpand()
   }
 
-  renderPlugins () {
+  renderPlugins() {
     const { plugins, sessionUser, activeItem, activeSubItem } = this.state
     return (
       <SidebarItem
@@ -75,7 +75,7 @@ class Sidebar extends React.Component {
     )
   }
 
-  render () {
+  render() {
     const { activeItem, activeSubItem, sessionUser } = this.props
     return (
       <ul className='side-nav'>
@@ -142,7 +142,7 @@ class Sidebar extends React.Component {
           class='navMessages'
           active={activeItem === 'messages'}
         /> */}
-        {/* {sessionUser && Helpers.canUser('accounts:view') && (
+        {sessionUser && Helpers.canUser('accounts:view') && (
           <SidebarItem
             text='Accounts'
             icon='&#xE7FD;'
@@ -154,20 +154,20 @@ class Sidebar extends React.Component {
           >
             {sessionUser && Helpers.canUser('agent:*', true) && (
               <Submenu id='accounts'>
-                <SubmenuItem
+                {/* <SubmenuItem
                   href={'/accounts/customers'}
                   text={'Customers'}
                   icon={'account_box'}
                   active={activeSubItem === 'accounts-customers'}
-                />
-                {sessionUser && Helpers.canUser('agent:*', true) && (
+                /> */}
+                {/* {sessionUser && Helpers.canUser('agent:*', true) && (
                   <SubmenuItem
                     href={'/accounts/agents'}
                     text={'Agents'}
                     icon={'account_circle'}
                     active={activeSubItem === 'accounts-agents'}
                   />
-                )}
+                )} */}
                 {sessionUser && Helpers.canUser('admin:*') && (
                   <SubmenuItem
                     href={'/accounts/admins'}
@@ -179,8 +179,8 @@ class Sidebar extends React.Component {
               </Submenu>
             )}
           </SidebarItem>
-        )} */}
-        {/* {sessionUser && Helpers.canUser('groups:view') && (
+        )}
+        {sessionUser && Helpers.canUser('groups:view') && (
           <SidebarItem
             text='Customer Groups'
             icon='supervisor_account'
@@ -188,7 +188,7 @@ class Sidebar extends React.Component {
             class='navGroups'
             active={activeItem === 'groups'}
           />
-        )} */}
+        )}
         {/* {sessionUser && Helpers.canUser('teams:view') && (
           <SidebarItem text='Teams' icon='wc' href='/teams' class='navTeams' active={activeItem === 'teams'} />
         )} */}
@@ -284,30 +284,30 @@ class Sidebar extends React.Component {
                 active={activeSubItem === 'settings-mailer'}
               />
               {/*<SubmenuItem text="Notifications" icon="" href="/settings/notifications" active={activeSubItem === 'settings-notifications'} />*/}
-              <SubmenuItem
+              {/* <SubmenuItem
                 href={'/settings/elasticsearch'}
                 text={'Elasticsearch'}
                 icon={'search'}
                 active={activeSubItem === 'settings-elasticsearch'}
-              />
-              <SubmenuItem
+              /> */}
+              {/* <SubmenuItem
                 text='Push Service'
-                icon='mobile_friendly'
+                icon='mobile_friendly'  
                 href='/settings/tps'
                 active={activeSubItem === 'settings-tps'}
-              />
+              /> */}
               <SubmenuItem
                 text='Backup/Restore'
                 icon='archive'
                 href='/settings/backup'
                 active={activeSubItem === 'settings-backup'}
               />
-              <SubmenuItem
+              {/* <SubmenuItem
                 text='Legal'
                 icon='gavel'
                 href='/settings/legal'
                 active={activeSubItem === 'settings-legal'}
-              />
+              /> */}
               {sessionUser && Helpers.canUser('settings:logs') && (
                 <SubmenuItem
                   text='Logs'

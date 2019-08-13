@@ -236,7 +236,7 @@ class AccountsContainer extends React.Component {
                     extraClass={'hover-accent'}
                     onClick={() => this.props.showModal('CREATE_ACCOUNT')}
                   />
-                  {helpers.canUser('accounts:import', true) && (
+                  {/* {helpers.canUser('accounts:import', true) && (
                     <DropdownTrigger mode={'click'} pos={'bottom-right'} offset={5} extraClass={'uk-float-right'}>
                       <Button
                         text={''}
@@ -251,7 +251,7 @@ class AccountsContainer extends React.Component {
                         <DropdownItem text={'Import'} href={'/accounts/import'} />
                       </Dropdown>
                     </DropdownTrigger>
-                  )}
+                  )} */}
                 </ButtonGroup>
               </div>
             </div>
