@@ -308,7 +308,7 @@ class Sidebar extends React.Component {
                 href='/settings/legal'
                 active={activeSubItem === 'settings-legal'}
               /> */}
-              {sessionUser && Helpers.canUser('settings:logs') && (
+              {/* {sessionUser && Helpers.canUser('settings:logs') && (
                 <SubmenuItem
                   text='Logs'
                   icon='remove_from_queue'
@@ -316,7 +316,7 @@ class Sidebar extends React.Component {
                   hasSeperator={true}
                   active={activeSubItem === 'settings-logs'}
                 />
-              )}
+              )} */}
             </Submenu>
           </SidebarItem>
         )}
