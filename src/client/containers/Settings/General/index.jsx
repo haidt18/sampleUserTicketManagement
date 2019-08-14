@@ -28,24 +28,24 @@ import Zone from 'components/ZoneBox/zone'
 import ZoneBox from 'components/ZoneBox'
 
 class GeneralSettings extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
   }
 
-  componentDidMount () {}
-  componentWillUnmount () {}
+  componentDidMount() { }
+  componentWillUnmount() { }
 
-  getSettingsValue (name) {
+  getSettingsValue(name) {
     return this.props.settings.getIn(['settings', name, 'value'])
       ? this.props.settings.getIn(['settings', name, 'value'])
       : ''
   }
 
-  updateSetting (stateName, name, value) {
+  updateSetting(stateName, name, value) {
     this.props.updateSetting({ stateName, name, value })
   }
 
-  getTimezones () {
+  getTimezones() {
     return moment.tz
       .names()
       .map(function (name) {
@@ -62,11 +62,11 @@ class GeneralSettings extends React.Component {
       })
   }
 
-  onTimezoneChange (e) {
+  onTimezoneChange(e) {
     if (e.target.value) this.updateSetting('timezone', 'gen:timezone', e.target.value)
   }
 
-  render () {
+  render() {
     const { active } = this.props
 
     const SiteTitle = (
@@ -180,11 +180,11 @@ class GeneralSettings extends React.Component {
             </ZoneBox>
           </Zone>
         </SettingItem>
-        <SettingItem
+        {/* <SettingItem
           title='Allow User Registration'
           subtitle='Allow users to create accounts on the login screen.'
           component={AllowUserRegistration}
-        />
+        /> */}
       </div>
     )
   }

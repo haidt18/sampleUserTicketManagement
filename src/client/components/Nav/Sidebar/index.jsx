@@ -180,7 +180,7 @@ class Sidebar extends React.Component {
             )}
           </SidebarItem>
         )}
-        {sessionUser && Helpers.canUser('groups:view') && (
+        {/* {sessionUser && Helpers.canUser('groups:view') && (
           <SidebarItem
             text='Customer Groups'
             icon='supervisor_account'
@@ -188,7 +188,7 @@ class Sidebar extends React.Component {
             class='navGroups'
             active={activeItem === 'groups'}
           />
-        )}
+        )} */}
         {/* {sessionUser && Helpers.canUser('teams:view') && (
           <SidebarItem text='Teams' icon='wc' href='/teams' class='navTeams' active={activeItem === 'teams'} />
         )} */}

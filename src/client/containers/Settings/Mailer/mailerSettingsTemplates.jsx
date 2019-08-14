@@ -156,7 +156,7 @@ class MailerSettings_Templates extends React.Component {
     const mappedValues = this.mapTemplateMenu()
     return (
       <div>
-        <SettingItem
+        {/* <SettingItem
           title={'Enable New Email Templates'}
           subtitle={
             <div>
@@ -173,7 +173,7 @@ class MailerSettings_Templates extends React.Component {
               onChange={e => this.onEmailBetaChange(e)}
             />
           }
-        />
+        /> */}
         <SplitSettingsPanel
           title={'Notification Templates'}
           subtitle={

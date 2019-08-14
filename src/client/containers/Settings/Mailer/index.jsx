@@ -24,8 +24,8 @@ class MailerSettingsContainer extends React.Component {
     return (
       <div className={active ? 'active' : 'hide'}>
         <MailerSettings_Templates />
-        <MailerSettings_Mailer />
-        <Mailer_MailerCheck />
+        {/* <MailerSettings_Mailer /> */}
+        {/* <Mailer_MailerCheck /> */}
       </div>
     )
   }
