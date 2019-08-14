@@ -137,6 +137,10 @@ middleware.checkCaptcha = function (req, res, next) {
   var captcha = postData.captcha
   var captchaValue = req.session.captcha
 
+  console.log('captcha :', captcha);
+  console.log('captchaValue :', captchaValue);
+  // by pass for submit public ticket
+  return next();
   if (captchaValue === undefined) {
     return res.status(400).json({ success: false, error: 'Invalid Captcha' })
   }
@@ -151,6 +155,10 @@ middleware.checkCaptcha = function (req, res, next) {
 middleware.checkOrigin = function (req, res, next) {
   var origin = req.headers.origin
   var host = req.headers.host
+  console.log('origin :', origin);
+  console.log('host :', host);
+  // by pass for submit public ticket
+  return next();
 
   // Firefox Hack - Firefox Bug 1341689 & 1424076
   // Trudesk Bug #26
@@ -158,7 +166,6 @@ middleware.checkOrigin = function (req, res, next) {
   if (!origin) {
     origin = host
   }
-
   origin = origin.replace(/^https?:\/\//, '')
 
   if (origin !== host) {
