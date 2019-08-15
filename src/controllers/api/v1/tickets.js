@@ -22,14 +22,14 @@ var sanitizeHtml = require('sanitize-html')
 
 var apiTickets = {}
 
-function buildGraphData (arr, days, callback) {
+function buildGraphData(arr, days, callback) {
   var graphData = []
   var today = moment()
     .hour(23)
     .minute(59)
     .second(59)
   var timespanArray = []
-  for (var i = days; i--; ) {
+  for (var i = days; i--;) {
     timespanArray.push(i)
   }
 
@@ -42,10 +42,10 @@ function buildGraphData (arr, days, callback) {
       return (
         v.date <= d.toDate() &&
         v.date >=
-          d
-            .clone()
-            .subtract(1, 'd')
-            .toDate()
+        d
+          .clone()
+          .subtract(1, 'd')
+          .toDate()
       )
     })
 
@@ -61,7 +61,7 @@ function buildGraphData (arr, days, callback) {
   return graphData
 }
 
-function buildAvgResponse (ticketArray, callback) {
+function buildAvgResponse(ticketArray, callback) {
   var cbObj = {}
   var $ticketAvg = []
   _.each(ticketArray, function (ticket) {
@@ -541,20 +541,37 @@ apiTickets.createPublicTicket = function (req, res) {
           pool: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890'
         })
 
-        user = new UserSchema({
-          username: postData.user.email,
-          password: plainTextPass,
-          fullname: postData.user.fullname,
-          email: postData.user.email,
-          accessToken: chance.hash(),
-          role: roleDefault.value
-        })
+        // check if account is existed!
+        UserSchema.findOne({ email: postData.user.email }, (err, existedUser) => {
+          if (err) {
+            return next(err)
+          }
+          
+          if (existedUser) {
+            console.log(`${postData.user.email} is existed!`);
+            return next(null, existedUser)
+          }
 
-        user.save(function (err, savedUser) {
-          if (err) return next(err)
+          user = new UserSchema({
+            username: postData.user.email,
+            password: plainTextPass,
+            fullname: postData.user.fullname,
+            email: postData.user.email,
+            accessToken: chance.hash(),
+            role: roleDefault.value
+          })
 
-          return next(null, savedUser)
-        })
+          user.save(function (err, savedUser) {
+            if (err) {
+              return next(err)
+            }
+            return next(null, savedUser)
+          })
+
+        });
+
+
+
       },
 
       function (savedUser, next) {
@@ -1447,7 +1464,7 @@ apiTickets.getTicketStats = function (req, res) {
   // return res.send(obj);
 }
 
-function parseTicketStats (role, tickets, callback) {
+function parseTicketStats(role, tickets, callback) {
   if (_.isEmpty(tickets)) return callback({ tickets: tickets, tags: {} })
   var t = []
   var tags = {}

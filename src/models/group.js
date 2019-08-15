@@ -29,7 +29,8 @@ var COLLECTION = 'groups'
  * @property {Array} sendMailTo Members to email when a new / updated ticket has triggered
  */
 var groupSchema = mongoose.Schema({
-  name: { type: String, required: true, unique: true },
+  // name: { type: String, required: true, unique: true },
+  name: { type: String, required: true },
   members: [
     {
       type: mongoose.Schema.Types.ObjectId,
