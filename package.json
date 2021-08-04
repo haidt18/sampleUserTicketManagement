@@ -106,7 +106,7 @@
     "socket.io": "2.1.1",
     "socket.io-client": "2.1.1",
     "svg-captcha": "1.3.12",
-    "tar": "4.4.8",
+    "tar": "4.4.15",
     "thirty-two": "1.0.2",
     "uglify-js": "3.4.9",
     "unzipper": "0.9.10",
