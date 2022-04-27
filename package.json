@@ -144,7 +144,7 @@
     "eslint-plugin-standard": "4.0.0",
     "exports-loader": "0.7.0",
     "expose-loader": "0.7.5",
-    "grunt": "1.0.3",
+    "grunt": "1.5.2",
     "grunt-contrib-cssmin": "3.0.0",
     "grunt-contrib-uglify": "3.4.0",
     "grunt-contrib-watch": "1.1.0",
